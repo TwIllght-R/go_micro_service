@@ -3,6 +3,6 @@ FROM alpine:latest
 
 RUN mkdir /app
 
-COPY  /app/brokerApp /app
+COPY  brokerApp /app
 
 CMD [ "/app/brokerApp" ]
