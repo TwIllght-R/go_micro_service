@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
+	"log"
 	"net/http"
 )
 
@@ -55,6 +56,7 @@ func (app *Config) HandleSubmisstion(w http.ResponseWriter, r *http.Request) {
 	case "log":
 		app.logItem(w, requestPayload.Log)
 	case "mail":
+		log.Println("calling mail-service")
 		app.SendMail(w, requestPayload.Mail)
 	default:
 		app.errorJSON(w, errors.New("unknown action"))
@@ -154,8 +156,7 @@ func (app *Config) SendMail(w http.ResponseWriter, msg MailPayload) {
 	jsonData, _ := json.Marshal(msg)
 
 	//call the mail service
-	mailServiceURL := "http://mail-service/send"
-
+	mailServiceURL := "http://mailer-service/send"
 	//post to mail service
 	request, err := http.NewRequest("POST", mailServiceURL, bytes.NewBuffer(jsonData))
 	if err != nil {
