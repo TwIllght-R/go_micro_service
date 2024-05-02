@@ -1,0 +1,8 @@
+#ignore database file
+/project/db-data
+# Ignore binary files
+/listener-service/listenerApp
+/authentication-service/authApp
+/broker-service/brokerApp
+/logger-service/loggerServiceApp
+/mail-service/mailerApp
