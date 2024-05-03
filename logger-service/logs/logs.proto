@@ -1,4 +1,4 @@
-systax = "proto3";
+syntax = "proto3";
 package logs;
 
 option go_package = "/logs";
@@ -9,7 +9,7 @@ message Log {
 }
 
 message LogRequest {
-    Log logEntery = 1;
+    Log logEntry = 1;
 }
 
 message LogResponse {
